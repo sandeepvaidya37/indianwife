@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/kundali-matching.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> 
+  <%- include('partials/nav') %>
+
+  <div class="kundali-main">
+    <% if (matches.length > 0) { %>
+      <% matches.forEach(match => { %>
+        <div class="kundali-profile">
+          <div class="profile-info">
+            <p><strong>Name:</strong> <%= match.matchWithName %></p>
+            <p><strong>Date:</strong> <%= new Date(match.requestedAt).toLocaleDateString() %></p>
+          </div>
+
+          <div class="profile-actions">
+            <a href="/profile/<%= match.matchWithId._id %>" class="view-btn">
+              <i class="fa-solid fa-eye"></i> View Profile
+            </a>
+
+            <% if (match.approved) { %>
+              <a href="<%= match.pdfLink %>" class="download-btn" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            <% } else { %>
+              <p class="processing">Request is Processing</p>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="no-requests">No requests sent yet.</p>
+    <% } %>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

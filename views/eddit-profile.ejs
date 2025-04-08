@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/eddit-profile.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+
+  <div class="div2">
+    <div class="details-sections">
+      <div class="top-details">
+        <div class="profile-details active">Profile Details</div>
+        <div class="career-details ">Career Details</div>
+        <div class="lifestyle-family ">Lifestyle & Family</div>
+      </div>
+      <div class="bottom-details">
+        Complete your profile now to contact members you like and to receive
+        interests
+      </div>
+    </div>
+    <div class="form-main">
+      <form action="/eddit-profile" method="post">
+        <div class="form-profile-details active   ">
+          
+
+          
+          
+          <div class="input-group">
+            <label for="manglikStatus">Manglik Status</label>
+<select id="manglikStatus" name="manglikStatus">
+  <option value="<%= currUser.manglikStatus %>"  selected><%= currUser.manglikStatus %></option>
+  <option value="Manglik">Manglik</option>
+  <option value="Not Manglik">Not Manglik</option>
+  <option value="Anshik Manglik">Anshik Manglik</option>
+</select>
+          </div>
+
+          <div class="input-group">
+            <label for="maritalStatus">Marital Status</label>
+<select id="maritalStatus" name="maritalStatus" >
+  <option value="<%= currUser.maritalStatus %>"  selected><%= currUser.maritalStatus %></option>
+  <option value="Never Married">Never Married</option>
+  <option value="Married">Married</option>
+  <option value="Divorced">Divorced</option>
+  <option value="Widowed">Widowed</option>
+  <option value="Separated">Separated</option>
+</select>
+          </div>
+
+          <div class="input-group">
+            <label for="partnerWork">Allow Partner to Work</label>
+            <select id="partnerWork" name="partnerWork" >
+              <option value="<%= currUser.partnerWork %>"  selected><%= currUser.partnerWork %></option>
+              <option value="Yes">Yes, my partner can work</option>
+              <option value="No">No, my partner should not work</option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label for="horoscopicMatch">Horoscopic Match</label>
+<select id="horoscopicMatch" name="horoscopicMatch">
+  <option value="<%= currUser.horoscopicMatch %>" disabled selected><%= currUser.horoscopicMatch %></option>
+  <option value="Must">Horoscopic match is a must</option>
+  <option value="Not Necessary">Horoscopic match is not necessary</option>
+</select>
+          </div>
+          <div class="input-group">
+            <label for="height">Height</label>
+<select id="height" name="height" >
+  <option value="<%= currUser.height %>"  selected><%= currUser.height %></option>
+  <% heights.forEach(function(height) { %>
+    <option value="feet:<%= height.feet_inches %>, meters: <%= height.meters %>">
+      <%= height.feet_inches %> (<%= height.meters %> m)
+    </option>
+  <% }); %>
+</select>
+          </div>
+
+          <p class="continue enabled">Continue</p>
+        </div>
+        <div class="form-career-details">
+          
+          
+          <div class="input-group">
+            <label for="degreeInput">Highest Degree</label>
+            <input
+              type="text"
+              id="degreeInput"
+              name="degree"
+              value="<%= currUser.degree %>"
+              list="degreeDatalist"
+            >
+            <datalist id="degreeDatalist">
+              <% degrees.forEach(function(degreeCategory) { %>
+                <% degreeCategory.degrees.forEach(function(degree) { %>
+                  <option value="<%= degree.name %>"><%= degree.name %> (<%= degreeCategory.category %>)</option>
+                <% }); %>
+              <% }); %>
+            </datalist>
+          </div>
+          <div class="input-group">
+            <label for="jobSector">Employed In</label>
+            <select id="jobSector" name="jobSector" >
+              <option value="<%= currUser.jobSector %>"  selected><%= currUser.jobSector %></option>
+              <% jobSectors.forEach(function(sector) { %>
+                <!-- Each option carries its occupations as a JSON string -->
+                <option value="<%= sector.sector %>" data-occupations='<%= JSON.stringify(sector.occupations) %>'>
+                  <%= sector.sector %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="occupationInput">Occupation</label>
+            <input
+              type="text"
+              id="occupationInput"
+              name="occupation"
+              value="<%= currUser.occupation %>"
+              list="occupationDatalist"
+              disabled
+            >
+            <datalist id="occupationDatalist"></datalist>
+          </div>
+
+          <div class="input-group">
+            <label for="annualIncome">Annual Income</label>
+            <select id="annualIncome" name="annualIncome" >
+              <option value="<%= currUser.annualIncome %>"  selected><%= currUser.annualIncome %></option>
+              <option value="0-1 Lakh">0 - 1 Lakh</option>
+              <option value="1-2 Lakhs">1 - 2 Lakhs</option>
+              <option value="2-3 Lakhs">2 - 3 Lakhs</option>
+              <option value="3-5 Lakhs">3 - 5 Lakhs</option>
+              <option value="5-7 Lakhs">5 - 7 Lakhs</option>
+              <option value="7-10 Lakhs">7 - 10 Lakhs</option>
+              <option value="10-15 Lakhs">10 - 15 Lakhs</option>
+              <option value="15-20 Lakhs">15 - 20 Lakhs</option>
+              <option value="20+">20 Lakhs &amp; above</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="expressYourself">Express Yourself</label>
+            <textarea
+              id="expressYourself"
+              name="expressYourself"
+              
+              rows="5"
+            ><%= currUser.expressYourself %></textarea>
+          </div>
+          
+          <div class="suggestions">
+            <p>You may consider answering these questions:</p>
+            <ol>
+              <li>How would you describe yourself?</li>
+              <li>What kind of food, movies, books, or music do you like?</li>
+              <li>Do you enjoy activities like traveling, music, sports, etc?</li>
+              <li>Where have you lived most of your life till now?</li>
+              <li>Where do you wish to settle down in the future?</li>
+            </ol>
+          </div>
+          
+          
+          <p class="continue enabled">Continue</p>
+        </div>
+        <div class="form-lifestyle-family ">
+          <div class="input-group">
+            <label for="familyType">Family Type</label>
+            <select id="familyType" name="familyType">
+              <option value="<%= currUser.familyType %>" selected><%= currUser.familyType %></option>
+              <option value="Joint">Joint Family</option>
+              <option value="Nuclear">Nuclear Family</option>
+              <option value="Extended">Extended Family</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="occupationType"> Father Occupation </label>
+            <select id="occupationType" name="fatheroccupationType" >
+              <option value="<%= currUser.fatheroccupationType %>"  selected><%= currUser.fatheroccupationType %></option>
+              <option value="Business Enterprise">Business &amp; Enterprise</option>
+              <option value="Private Service">Private - Service </option>
+              <option value="Government Service">Government - Service </option>
+              <option value="Army">Army / Armed Forces</option>
+              <option value="Civil Service">Civil Service</option>
+              <option value="Retired">Retired</option>
+              <option value="Not Employed">Not Employed</option>
+              <option value="Expired">Expired</option>
+              <option value="Other">Other</option>
+
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="occupationType">Mother Occupation </label>
+            <select id="occupationType" name="motheroccupation">
+              <option value="<%= currUser.motheroccupation %>"  selected><%= currUser.motheroccupation %></option>
+              <option value="Business Enterprise">Business &amp; Enterprise</option>
+              <option value="Private Service">Private - Service</option>
+              <option value="Government Service">Government - Service</option>
+              <option value="Army">Army / Armed Forces</option>
+              <option value="Civil Service">Civil Service</option>
+              <option value="Retired">Retired</option>
+              <option value="Not Employed">Not Employed</option>
+              <option value="Expired">Expired</option>
+              <option value="Home Maker">Home Maker</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="brothers">Brothers</label>
+            <input type="number" class="fullinput" id="brothers" name="brothers" min="0" value="<%= currUser.brothers %>">
+          </div>
+          
+          <div class="input-group">
+            <label for="marriedBrothers">Married Brothers</label>
+            <input type="number" class="fullinput" id="marriedBrothers" name="marriedBrothers" min="0" value="<%= currUser.marriedBrothers %>">
+          </div>
+          
+          <div class="input-group">
+            <label for="sisters">Sisters</label>
+            <input type="number" class="fullinput"  id="sisters" name="sisters" min="0" value="<%= currUser.sisters %>">
+          </div>
+          
+          <div class="input-group">
+            <label for="marriedSisters">Married Sisters</label>
+            <input type="number" class="fullinput" id="marriedSisters" name="marriedSisters" min="0" value="<%= currUser.marriedSisters %>">
+          </div>
+          <div class="input-group">
+            <label for="familyLiving">Family Living In</label>
+            <select class="fullinput" id="familyLiving" name="familyLiving" >
+              <option value="<%= currUser.familyLiving %>"  selected><%= currUser.familyLiving %></option>
+              <% countries.forEach(function(country) { %>
+                <option value="<%= country.name %>"><%= country.name %></option>
+              <% }); %>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="aboutFamily">About My Family</label>
+            <textarea id="aboutFamily" name="aboutfamily"  rows="5"><%= currUser.aboutFamily %></textarea>
+          </div>
+          
+          <button class="btn" type="submit">Save Details</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("✅ jQuery is working!");
+        });
+    </script>
+  <script src="/js/eddit-profile.js"></script>
+</body>
+</html>

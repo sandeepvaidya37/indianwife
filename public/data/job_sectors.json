@@ -1,0 +1,202 @@
+[
+    {
+        "sector": "Information Technology",
+        "occupations": [
+            {
+                "name": "Software Engineer"
+            },
+            {
+                "name": "Web Developer"
+            },
+            {
+                "name": "Data Scientist"
+            },
+            {
+                "name": "Cyber Security Analyst"
+            },
+            {
+                "name": "AI/ML Engineer"
+            }
+        ]
+    },
+    {
+        "sector": "Healthcare",
+        "occupations": [
+            {
+                "name": "Doctor"
+            },
+            {
+                "name": "Nurse"
+            },
+            {
+                "name": "Pharmacist"
+            },
+            {
+                "name": "Medical Lab Technician"
+            },
+            {
+                "name": "Radiologist"
+            }
+        ]
+    },
+    {
+        "sector": "Education",
+        "occupations": [
+            {
+                "name": "Teacher"
+            },
+            {
+                "name": "Professor"
+            },
+            {
+                "name": "Librarian"
+            },
+            {
+                "name": "Education Consultant"
+            },
+            {
+                "name": "Research Scholar"
+            }
+        ]
+    },
+    {
+        "sector": "Finance",
+        "occupations": [
+            {
+                "name": "Accountant"
+            },
+            {
+                "name": "Investment Banker"
+            },
+            {
+                "name": "Financial Analyst"
+            },
+            {
+                "name": "Auditor"
+            },
+            {
+                "name": "Tax Consultant"
+            }
+        ]
+    },
+    {
+        "sector": "Construction & Engineering",
+        "occupations": [
+            {
+                "name": "Civil Engineer"
+            },
+            {
+                "name": "Mechanical Engineer"
+            },
+            {
+                "name": "Electrical Engineer"
+            },
+            {
+                "name": "Architect"
+            },
+            {
+                "name": "Construction Manager"
+            }
+        ]
+    },
+    {
+        "sector": "Media & Entertainment",
+        "occupations": [
+            {
+                "name": "Journalist"
+            },
+            {
+                "name": "Actor"
+            },
+            {
+                "name": "Video Editor"
+            },
+            {
+                "name": "Photographer"
+            },
+            {
+                "name": "Content Creator"
+            }
+        ]
+    },
+    {
+        "sector": "Hospitality & Tourism",
+        "occupations": [
+            {
+                "name": "Hotel Manager"
+            },
+            {
+                "name": "Tour Guide"
+            },
+            {
+                "name": "Chef"
+            },
+            {
+                "name": "Event Planner"
+            },
+            {
+                "name": "Travel Agent"
+            }
+        ]
+    },
+    {
+        "sector": "Manufacturing",
+        "occupations": [
+            {
+                "name": "Factory Supervisor"
+            },
+            {
+                "name": "Production Manager"
+            },
+            {
+                "name": "Quality Control Inspector"
+            },
+            {
+                "name": "Supply Chain Manager"
+            },
+            {
+                "name": "Mechanical Technician"
+            }
+        ]
+    },
+    {
+        "sector": "Government & Public Sector",
+        "occupations": [
+            {
+                "name": "IAS Officer"
+            },
+            {
+                "name": "IPS Officer"
+            },
+            {
+                "name": "Clerk"
+            },
+            {
+                "name": "Railway Engineer"
+            },
+            {
+                "name": "Postman"
+            }
+        ]
+    },
+    {
+        "sector": "Retail & Sales",
+        "occupations": [
+            {
+                "name": "Retail Manager"
+            },
+            {
+                "name": "Sales Executive"
+            },
+            {
+                "name": "Customer Service Representative"
+            },
+            {
+                "name": "Store Manager"
+            },
+            {
+                "name": "Marketing Specialist"
+            }
+        ]
+    }
+]

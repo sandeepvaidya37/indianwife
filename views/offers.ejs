@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="/css/offers.css" />
+    <link rel="icon" type="image/png" href="/images/iw5.png" />
+    <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+  <div class="main">
+    
+  <h1>Your Exclusive Offers 🎁</h1>
+
+  <div class="promo-container">
+    <% if (promoCodes.length === 0) { %>
+      <p>No offers available currently.</p>
+    <% } else { %>
+      <% promoCodes.forEach(promo => { %>
+        <div class="promo-card">
+          <div class="promo-code"><%= promo.code %></div>
+          <div class="discount">Get <%= promo.discount %>% OFF</div>
+          <div class="note">Use this promo during checkout.</div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+  </div>
+  <%- include('partials/footer') %>
+    <script src="/js/offers.js"></script>
+</body>
+</html>

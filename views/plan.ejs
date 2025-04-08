@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/plan.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+
+  <%- include('partials/popmsg') %> 
+  <%- include('partials/nav') %>
+
+    <div class="plan-container">
+        <p>Your Current Plan</p>
+
+        <div class="plan-card">
+            <div class="plan-details">
+              <h3><%= plan.planName %><span>sponsorship(<%= plan.sponsorship %>)</span></h3>
+            <p><strong>Views Remaining:</strong> <%= plan.viewsRemaining %></p>
+            <p><strong>Chats Remaining:</strong> <%= plan.chatsRemaining %></p>
+            <p><strong>Contacts Remaining:</strong> <%= plan.contactsRemaining %></p>
+            <p><strong>intrests Remaining:</strong> <%= plan.intrestsRemaining %></p>
+            <p><strong>shortlists Remaining:</strong> <%= plan.shortlistsRemaining %></p>
+            <p><strong>Valid Until:</strong> <%= plan.validUntil %></p>
+            <a href="/Upgrade-Membership" class="upgrade-btn">Upgrade Plan</a>
+            </div>
+        </div>
+
+        
+    </div>
+<%- include('partials/footer') %>
+</body>
+</html>

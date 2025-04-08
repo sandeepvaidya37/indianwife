@@ -1,0 +1,292 @@
+.plan-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100VW;
+  background-color: #FFF;
+  padding-top: 10px;
+}
+.plan-switcher button {
+  padding: 10px 20px;
+  border: none;
+  color: black;
+  background-color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.plan-switcher button.active{
+  transition: 0.4s;
+  background: linear-gradient(135deg, #0F73E2, #27AF83);
+  color: #fff;
+}
+.plan-switcher button:hover{
+  transition: 0.4s;
+  background: linear-gradient(135deg, #0F73E2, #27AF83);
+  color: #fff;
+}
+.plan-container {
+  display: none;
+  padding: 20px;
+  background: white;
+}
+
+.plan-container.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+.plan-container h2{
+  overflow: hidden;
+  font-family: "VeryVogue4";
+}
+.plan-container h2 i{
+overflow: hidden;
+color: #ff0000;
+padding-top: 4px;
+font-size: 18px;
+}
+.promo{
+  position: relative;
+  width: 100vw;
+  display: flex;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+}
+.promo p {
+  position: absolute;
+  top: 0px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 800;
+  animation: fadeSlide 1s ease-in-out infinite alternate;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0.5;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+.promo input{
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border: 1px solid red;
+  padding-left: 20px;
+  color: #F3149C;
+  font-weight: 800;
+  font-size: 15px;
+}
+.promo button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 30px;
+
+}
+.sub-plans {
+  width: 100vw;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.sub-plan {
+  position: relative;
+  width: 250px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ff0000, #ffcc00); /* Red to Yellow gradient */
+  color: white;
+  font-size: 18px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible; /* Ensures child elements aren't clipped */
+  z-index: 1; /* Makes sure it stays above */
+}
+
+/* Hover effect for better interaction */
+.sub-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sub-plan .top {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  overflow: visible; /* Prevents clipping */
+}
+
+.sub-plan .top .top-right {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 800;
+  top: 50%; /* Centered vertically */
+  right: -20px; /* Moves it further outside */
+  transform: translateY(-50%); /* Keeps it centered */
+  z-index: 2; /* Ensures it's above */
+  background: linear-gradient(135deg, #ff0000, #ffcc00);
+  width: 130px;
+  height: 40px;
+  border-radius: 0px 25px 25px 0; /* Smooth right side */
+  
+  /* Creating a stylish clipped shape */
+  clip-path: polygon(100% 0, 100% 100%, 25% 100%, 0 50%, 25% 0);
+}
+
+.top-left{
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  color: black;
+}
+.top-left p{
+   font-size: 15px;
+   font-weight: 900;
+}
+.top-left span{
+  font-size: 10px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff0000, #ffcc00); /* Red to Yellow */
+  -webkit-background-clip: text; /* Clips the background to the text */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  font-weight: bold;
+}
+
+.sub-plan .mid{
+  margin-top: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: 210px;
+  padding-left: 20px;
+  padding: 10px;
+}
+.sub-plan .mid p{
+  color: rgba(0, 0, 0, 0.842);
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  align-items: center;
+}
+.sub-plan .mid p span{
+  width: 20px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff0000, #ffcc00);
+  color: #fff;
+}
+.sub-plan .bottom{
+  background-color: transparent;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-plan .bottom button{
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+}
+#normal .sub-plans .sub-plan:nth-child(2), #pro .sub-plans .sub-plan:nth-child(2), #pro-max .sub-plans .sub-plan:nth-child(2), #gold .sub-plans .sub-plan:nth-child(2), #diamond .sub-plans .sub-plan:nth-child(2), #sponsorship .sub-plans .sub-plan:nth-child(2) {
+  background: linear-gradient(135deg, #0F73E2, #27AF83);
+}
+#normal .sub-plans .sub-plan:nth-child(2) .top .top-right, #pro .sub-plans .sub-plan:nth-child(2) .top .top-right, #pro-max .sub-plans .sub-plan:nth-child(2) .top .top-right, #gold .sub-plans .sub-plan:nth-child(2) .top .top-right, #diamond .sub-plans .sub-plan:nth-child(2) .top .top-right, #sponsorship .sub-plans .sub-plan:nth-child(2) .top .top-right {
+  background: linear-gradient(135deg, #0F73E2, #27AF83);
+}
+#normal .sub-plans .sub-plan:nth-child(2) .mid span, #pro .sub-plans .sub-plan:nth-child(2) .mid span, #pro-max .sub-plans .sub-plan:nth-child(2) .mid span, #gold .sub-plans .sub-plan:nth-child(2) .mid span, #diamond .sub-plans .sub-plan:nth-child(2) .mid span, #sponsorship .sub-plans .sub-plan:nth-child(2) .mid span{
+  background: linear-gradient(135deg, #0F73E2, #27AF83);
+}
+
+#normal .sub-plans .sub-plan:nth-child(2) .top-left span, #pro .sub-plans .sub-plan:nth-child(2) .top-left span,#pro-max .sub-plans .sub-plan:nth-child(2) .top-left span, #gold .sub-plans .sub-plan:nth-child(2) .top-left span, #diamond .sub-plans .sub-plan:nth-child(2) .top-left span, #sponsorship .sub-plans .sub-plan:nth-child(2) .top-left span{
+  font-size: 10px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #0F73E2, #27AF83); /* Red to Yellow */
+  -webkit-background-clip: text; /* Clips the background to the text */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  font-weight: bold;
+}
+
+#normal .sub-plans .sub-plan:nth-child(3), #pro .sub-plans .sub-plan:nth-child(3), #pro-max .sub-plans .sub-plan:nth-child(3), #gold .sub-plans .sub-plan:nth-child(3), #diamond .sub-plans .sub-plan:nth-child(3), #sponsorship .sub-plans .sub-plan:nth-child(3) {
+  background: linear-gradient(135deg, #F3149C, #A203ED);
+}
+#normal .sub-plans .sub-plan:nth-child(3) .top .top-right, #pro .sub-plans .sub-plan:nth-child(3) .top .top-right, #pro-max .sub-plans .sub-plan:nth-child(3) .top .top-right, #gold .sub-plans .sub-plan:nth-child(3) .top .top-right, #diamond .sub-plans .sub-plan:nth-child(3) .top .top-right, #sponsorship .sub-plans .sub-plan:nth-child(3) .top .top-right{
+  background: linear-gradient(135deg, #F3149C, #A203ED);
+}
+#normal .sub-plans .sub-plan:nth-child(3) .mid span, #pro .sub-plans .sub-plan:nth-child(3) .mid span, #pro-max .sub-plans .sub-plan:nth-child(3) .mid span, #gold .sub-plans .sub-plan:nth-child(3) .mid span, #diamond .sub-plans .sub-plan:nth-child(3) .mid span, #sponsorship .sub-plans .sub-plan:nth-child(3){
+  background: linear-gradient(135deg, #F3149C, #A203ED);
+}
+
+#normal .sub-plans .sub-plan:nth-child(3) .top-left span, #pro .sub-plans .sub-plan:nth-child(3) .top-left span,#pro-max .sub-plans .sub-plan:nth-child(3) .top-left span, #gold .sub-plans .sub-plan:nth-child(3) .top-left span, #diamond .sub-plans .sub-plan:nth-child(3) .top-left span, #sponsorship .sub-plans .sub-plan:nth-child(3) .top-left span  {
+  font-size: 10px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #F3149C, #A203ED); /* Red to Yellow */
+  -webkit-background-clip: text; /* Clips the background to the text */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  font-weight: bold;
+}
+
+
+@media (max-width: 400px) {
+  .plan-switcher {
+      width: 300px;
+      flex-direction: column;
+    padding-left: 5px;
+  }
+  .plan-switcher button{
+    width: 280px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.promo p{
+   font-size: 9px;
+}
+.plan-container h2:nth-child(1){
+  font-size: 16px;
+}
+}

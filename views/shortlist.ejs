@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/shortlist.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+    <% if (shortlistedProfiles.length === 0) { %>
+        <div style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">No shortlisted profiles yet</div>
+    <% } else { %>
+      <div class="div1">
+        <div class="feed-container">
+          <% shortlistedProfiles.forEach(user => { %>
+            <div class="profile-card">
+              <a href="/profile/<%=user.id%>">
+                <div class="profile-image">
+                  <img 
+                    src="<%= user.images && user.images.length > 0 ? user.images[0] : 'https://images.unsplash.com/photo-1740252330580-ca1d8173a786?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' %>" 
+                    alt="User Photo" 
+                  />
+                  <span class="photo-count">
+                    <%= user.images && user.images.length ? user.images.length : 0 %>
+                  </span>
+                </div>
+              </a>
+              <div class="profile-details">
+                <p class="last-seen">
+                  Last seen at 
+                  <%= user.lastSeenTime ? new Date(user.lastSeenTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) : 'N/A' %>
+                </p>
+                
+                <h2>
+                  <%= user.fullname %>, <%= user.age %>
+                  <% if (user.isVerified) { %>
+                    <span class="verified-badge"><img src="/images/verify.png" alt="verified"></span>
+                  <% } %>
+                </h2>
+                <p><%= user.height %> • <%= user.City %> • <%= user.motherTongue %></p>
+                <p class="education"><i class="fa-solid fa-wallet"></i><%= user.jobSector %> - <%= user.occupation %> • <%= user.annualIncome %> p.a</p>
+                <p class="education"><i class="fa-solid fa-user-graduate"></i> <%= user.degree %>  • <i class="fa-solid fa-ring"></i> <%= user.maritalStatus %></p>
+                <div class="profile-actions">
+                  <button class="btn interest <%= user.interests.some(id => id.toString() === currUser._id.toString()) ? 'active' : '' %>" 
+                    data-user-id="<%= user._id.toString() %>">
+              <i class="fa-solid fa-thumbs-up"></i> 
+              <p>Like</p>
+            </button>
+            
+                  <button class="btn super-interest <%= user.superInterests.includes(currUser.id) ? 'active' : '' %>" id="sendSuperInterest" data-user-id="<%= user._id.toString() %>"><i class="fa-solid fa-heart"></i> <p>Interest</p></button>
+                  <button class="btn shortlist <%= currUser.shortlists.includes(user.id) ? 'active' : '' %>" data-user-id="<%= user._id.toString() %>"><i class="fa-solid fa-star"></i> <p>Shortlist</p></button>
+                  <form action="/chat/<%= user._id %>" method="get">
+                    <button class="btn chat"><i class="fa-solid fa-message"></i> <p>Chat</p></button>
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+      </div>
+        
+    <% } %>
+
+
+    <%- include('partials/footer') %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("✅ jQuery is working!");
+        });
+    </script>
+    <script src="/js/shortlist.js"></script>
+</body>
+</html>

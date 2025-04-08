@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/otp.css">
+    <link rel="icon" type="image/png" href="/images/iw5.png">
+    <title>login-IndianWife.in</title>
+</head>
+<body>
+    <%- include('partials/popmsg') %>
+
+    <div class="login-container">
+        <div class="desc">
+            <img src="/images/bg3.png" alt="logo">
+            <h1>
+                Where hearts <br/> meet, <span>love</span> begins.
+            </h1>
+            <p>Join us today!</p>
+        </div>
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <span class="toggle-password" onclick="togglePassword()">👁</span>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            
+            <p id="switch-to-otp" class="swithch">Not Registered ? <span>Create an account </span></p> 
+            <form action="/password-change" method="post" id="password-change-form">
+                <button>
+                    <p id="forgotpassword" class="password">Forgot Password ? <span>click Here </span></p>
+                </button>
+                
+            </form>
+             
+        </div>
+        <div class="otp-verification">
+            <h2>Enter Your Phone Number</h2>
+            <% if (error) { %>
+                <p style="color: red;"><%= error %></p>
+            <% } %>
+            <form action="/send-otp" method="POST">
+                <input type="text" name="phone" placeholder="Enter phone number" required>
+                <button type="submit">Send OTP</button>
+            </form>
+            <p id="switch-to-login" class="swithch">Already Registered ? <span>Login Here! </span></p>
+        </div>
+    </div>
+    
+    
+    <script src="/js/otp.js"></script>
+</body>
+</html>

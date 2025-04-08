@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/kyc.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+
+  <div class="kyc-container">
+    <% if (!approval) { %>
+        <!-- KYC Form -->
+        <h2>Upload Aadhaar Card</h2>
+        <form class="kyc-form" action="/profile-verification" method="POST" enctype="multipart/form-data">
+            <div class="preview-container">
+                <img id="previewImage" src="" alt="Aadhaar Preview" style="display: none;">
+            </div>
+            <input type="file" name="aadhaar" id="fileInput" accept="image/*" required>
+            <button type="submit">Upload & Verify</button>
+        </form>
+    <% } else if (currUser.kyc) { %>
+        <!-- KYC Approved -->
+        <div class="kyc-approved">
+            <img src="<%= currUser.adhar %>" alt="Aadhaar Card">
+            <div class="badge">✅ Verified</div>
+        </div>
+    <% } else { %>
+        <!-- KYC Pending -->
+        <div class="kyc-pending">
+            <p>🔄 Your KYC verification is pending. Please wait while we review it.</p>
+        </div>
+    <% } %>
+</div>
+  
+  
+  <%- include('partials/footer') %>
+    <script src="/js/kyc.js"></script>
+</body>
+</html>

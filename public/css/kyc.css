@@ -1,0 +1,143 @@
+/* Root Variables */
+:root {
+  --primary-color: #CA3D65;
+  --secondary-color: #F8F9FA;
+  --text-color: #333;
+  --border-radius: 10px;
+  --shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --secondary-color: #1E1E1E;
+    --text-color: #F8F9FA;
+  }
+}
+
+/* Container */
+.kyc-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  flex-direction: column;
+}
+
+/* KYC Title */
+.kyc-container h2 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+/* KYC Form */
+.kyc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Input File */
+.kyc-form input[type="file"] {
+  padding: 10px;
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.kyc-form input[type="file"]:hover {
+  background: rgba(202, 61, 101, 0.1);
+}
+
+/* Upload Button */
+.kyc-form button {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.kyc-form button:hover {
+  background: #b32e56;
+}
+
+/* Image Preview */
+.preview-container {
+  margin-bottom: 15px;
+}
+
+.preview-container img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+}
+
+/* KYC Approved */
+.kyc-approved {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.kyc-approved img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 2px solid green;
+}
+
+.kyc-approved .badge {
+  background: green;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+}
+
+/* KYC Pending */
+.kyc-pending {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.kyc-pending p {
+  color: #856404;
+  font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 400px) {
+  .kyc-container {
+    padding: 15px;
+  }
+
+  .kyc-form button {
+    font-size: 0.9rem;
+  }
+}

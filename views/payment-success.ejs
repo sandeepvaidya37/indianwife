@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/payment-success.css" />
+    <link rel="icon" type="image/png" href="/images/iw5.png" />
+    <title>IndianWife.in</title>
+</head>
+<body style="text-align: center; font-family: Arial, sans-serif;">
+    <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+    <div class="main">
+        <h1>🎉 Thank You for Your Purchase, <%= order.customer_details.customer_name %>!</h1>
+    <p>Your order was successful.</p>
+    <h3>Plan: <%= order.order_note %></h3>
+    <h3>Amount Paid: ₹<%= order.order_amount %></h3>
+    
+    <a href="/download-receipt?order_id=<%= order.order_id %>" download>
+        <button style="padding: 10px 20px; font-size: 16px;">📄 Download Receipt</button>
+    </a>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

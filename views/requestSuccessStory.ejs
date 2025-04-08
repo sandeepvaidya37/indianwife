@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="/css/requestSuccessStory.css" />
+    <link rel="icon" type="image/png" href="/images/iw5.png" />
+    <title>IndianWife.in</title>
+</head>
+<body>
+
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+  <div class="main">
+    <div class="container">
+      <h2>Share Your Success Story</h2>
+  
+      <% if (messages.success) { %>
+        <p class="success"><%= messages.success %></p>
+      <% } %>
+  
+      <% if (messages.error) { %>
+        <p class="error"><%= messages.error %></p>
+      <% } %>
+  
+      <form action="/requestSuccessStory" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="name">Your Name</label>
+          <input type="text" name="name" id="name" required>
+        </div>
+  
+        <div class="input-group">
+          <label for="partnerName">Your Partner's Name</label>
+          <input type="text" name="partnerName" id="partnerName" required>
+        </div>
+  
+        <div class="input-group">
+          <label for="image">Upload Your Photo</label>
+          <input type="file" name="image" id="image" accept="image/*" required>
+          <img id="previewImage" src="" alt="Preview" style="display:none;">
+        </div>
+  
+        <div class="input-group">
+          <label for="quote">Write a Beautiful Quote</label>
+          <textarea name="quote" id="quote" rows="4" required></textarea>
+        </div>
+  
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/requestSuccessStory.js"></script>
+  
+</body>
+</html>

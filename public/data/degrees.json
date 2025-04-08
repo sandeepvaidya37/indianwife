@@ -1,0 +1,181 @@
+[
+    {
+        "category": "Engineering",
+        "degrees": [
+            {
+                "name": "Bachelor of Technology (B.Tech)"
+            },
+            {
+                "name": "Master of Technology (M.Tech)"
+            },
+            {
+                "name": "Bachelor of Engineering (B.E.)"
+            },
+            {
+                "name": "Master of Engineering (M.E.)"
+            },
+            {
+                "name": "Diploma in Engineering"
+            }
+        ]
+    },
+    {
+        "category": "Medicine",
+        "degrees": [
+            {
+                "name": "Bachelor of Medicine, Bachelor of Surgery (MBBS)"
+            },
+            {
+                "name": "Bachelor of Dental Surgery (BDS)"
+            },
+            {
+                "name": "Bachelor of Ayurvedic Medicine and Surgery (BAMS)"
+            },
+            {
+                "name": "Bachelor of Homeopathic Medicine and Surgery (BHMS)"
+            },
+            {
+                "name": "Doctor of Medicine (MD)"
+            },
+            {
+                "name": "Master of Surgery (MS)"
+            }
+        ]
+    },
+    {
+        "category": "Science",
+        "degrees": [
+            {
+                "name": "Bachelor of Science (B.Sc)"
+            },
+            {
+                "name": "Master of Science (M.Sc)"
+            },
+            {
+                "name": "Doctor of Philosophy (PhD) in Science"
+            }
+        ]
+    },
+    {
+        "category": "Arts & Humanities",
+        "degrees": [
+            {
+                "name": "Bachelor of Arts (B.A.)"
+            },
+            {
+                "name": "Master of Arts (M.A.)"
+            },
+            {
+                "name": "Bachelor of Fine Arts (BFA)"
+            },
+            {
+                "name": "Master of Fine Arts (MFA)"
+            },
+            {
+                "name": "Doctor of Philosophy (PhD) in Arts"
+            }
+        ]
+    },
+    {
+        "category": "Commerce & Business",
+        "degrees": [
+            {
+                "name": "Bachelor of Commerce (B.Com)"
+            },
+            {
+                "name": "Master of Commerce (M.Com)"
+            },
+            {
+                "name": "Bachelor of Business Administration (BBA)"
+            },
+            {
+                "name": "Master of Business Administration (MBA)"
+            },
+            {
+                "name": "Chartered Accountant (CA)"
+            },
+            {
+                "name": "Company Secretary (CS)"
+            }
+        ]
+    },
+    {
+        "category": "Law",
+        "degrees": [
+            {
+                "name": "Bachelor of Laws (LLB)"
+            },
+            {
+                "name": "Master of Laws (LLM)"
+            },
+            {
+                "name": "Doctor of Philosophy (PhD) in Law"
+            }
+        ]
+    },
+    {
+        "category": "Education",
+        "degrees": [
+            {
+                "name": "Bachelor of Education (B.Ed)"
+            },
+            {
+                "name": "Master of Education (M.Ed)"
+            },
+            {
+                "name": "Diploma in Education (D.Ed)"
+            }
+        ]
+    },
+    {
+        "category": "Computer Science & IT",
+        "degrees": [
+            {
+                "name": "Bachelor of Computer Applications (BCA)"
+            },
+            {
+                "name": "Master of Computer Applications (MCA)"
+            },
+            {
+                "name": "Bachelor of Science in Computer Science (B.Sc CS)"
+            },
+            {
+                "name": "Master of Science in Computer Science (M.Sc CS)"
+            },
+            {
+                "name": "Diploma in Information Technology"
+            }
+        ]
+    },
+    {
+        "category": "Hotel Management & Hospitality",
+        "degrees": [
+            {
+                "name": "Bachelor of Hotel Management (BHM)"
+            },
+            {
+                "name": "Diploma in Hotel Management"
+            },
+            {
+                "name": "Master of Hotel Management (MHM)"
+            }
+        ]
+    },
+    {
+        "category": "Agriculture & Veterinary",
+        "degrees": [
+            {
+                "name": "Bachelor of Science in Agriculture (B.Sc Agri)"
+            },
+            {
+                "name": "Master of Science in Agriculture (M.Sc Agri)"
+            },
+            {
+                "name": "Bachelor of Veterinary Science (B.VSc)"
+            },
+            {
+                "name": "Master of Veterinary Science (M.VSc)"
+            }
+        ]
+    }
+]

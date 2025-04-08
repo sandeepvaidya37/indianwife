@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/filter-choice.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+  <p class="filter-heading">Filter options</p>
+  <div class="div2">
+    
+    
+    
+    <div class="form-main">
+      <form action="/filter" method="post">
+          
+
+          <div  class="input-group">
+            <label for="motherTongue"
+              > Mother Tongue </label
+            >
+            <select name="motherTongue" id="motherTongue">
+              <option value=" " disabled selected>Preferd Mother Tongue</option>
+              <% motherTongues.forEach(function(motherTongue) { %>
+              <optgroup label="<%= motherTongue.region %>">
+                <% motherTongue.languages.forEach(function(language) { %>
+                <option value="<%= language.name %>">
+                  <%= language.name %>
+                </option>
+                <% }); %>
+              </optgroup>
+              <% }); %>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="religionSelect"
+              >Religion </label
+            >
+            <select name="religion"  id="religionSelect">
+              <option value="" disabled selected>Select Preferd Religion</option>
+              <% religions.forEach(function(religion) { %>
+              <!-- Store castes as a JSON string in a custom attribute -->
+              <option
+                value="<%= religion.name %>"
+                data-castes="<%= JSON.stringify(religion.castes) %>"
+              >
+                <%= religion.name %>
+              </option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="casteInput"
+              >Preferd Caste</label>
+            <input
+              type="text"
+              id="casteInput"
+              placeholder="Type caste"
+              list="castDatalist"
+              name="cast"
+              disabled
+            />
+            <datalist id="castDatalist"></datalist>
+          </div>
+          
+          <div class="input-group">
+            <label for="gender">Gender</label>
+            <select id="gender"  name="gender" >
+              <option value="" disabled selected>Select Partner gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="manglikStatus">Manglik Status</label>
+<select id="manglikStatus" name="manglikStatus">
+  <option value="" disabled selected>Select Manglik Status</option>
+  <option value="Manglik">Manglik</option>
+  <option value="Not Manglik">Not Manglik</option>
+  <option value="Anshik Manglik">Anshik Manglik</option>
+</select>
+          </div>
+
+          <div class="input-group">
+            <label for="maritalStatus">Marital Status</label>
+<select id="maritalStatus" name="maritalStatus" >
+  <option value="" disabled selected>Select Marital Status</option>
+  <option value="Never Married">Never Married</option>
+  <option value="Married">Married</option>
+  <option value="Divorced">Divorced</option>
+  <option value="Widowed">Widowed</option>
+  <option value="Separated">Separated</option>
+</select>
+          </div>
+
+          
+      <div class="input-group">
+        <label for="ageMin"> Minimum Age</label>
+        <input id="ageMin" type="number" name="ageMin" placeholder="Enter minimum Age">
+      </div>
+      <div class="input-group">
+        <label for="ageMax"> Maximum Age</label>
+        <input id="ageMax" type="number" name="ageMax" placeholder="Enter maximum Age">
+      </div>
+
+          <div class="input-group">
+            <label for="horoscopicMatch">Horoscopic Match</label>
+<select id="horoscopicMatch" name="horoscopicMatch">
+  <option value="" disabled selected>Select your preference</option>
+  <option value="Horoscopic match is a must">Horoscopic match is a must</option>
+  <option value="Horoscopic match is not necessary">Horoscopic match is not necessary</option>
+</select>
+          </div>
+          
+          <div class="input-group">
+            <label for="country">Select Preferd State </label>
+            <select name="state" id="country">
+              
+              <option value="" disabled selected>Select State and UTs</option>
+              <% countries.forEach(function(country) { %>
+                <option value="<%= country.name %>"><%= country.name %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="city"> 100km Near City</label>
+            <input class="city" id="city" type="text" name="City" placeholder="Start typing city name..." list="city-suggestions">
+             <datalist id="city-suggestions"></datalist>
+          </div>
+          
+          <div class="input-group">
+            <label for="degreeInput">Highest Degree</label>
+            <input
+              type="text"
+              id="degreeInput"
+              name="degree"
+              placeholder="Type your degree"
+              list="degreeDatalist"
+              
+            >
+            <datalist id="degreeDatalist">
+              <% degrees.forEach(function(degreeCategory) { %>
+                <% degreeCategory.degrees.forEach(function(degree) { %>
+                  <option value="<%= degree.name %>"><%= degree.name %> (<%= degreeCategory.category %>)</option>
+                <% }); %>
+              <% }); %>
+            </datalist>
+          </div>
+          <div class="input-group">
+            <label for="jobSector">Employed In</label>
+            <select id="jobSector" name="jobSector">
+              <option value="" disabled selected>Select Employment</option>
+              <% jobSectors.forEach(function(sector) { %>
+                <!-- Each option carries its occupations as a JSON string -->
+                <option value="<%= sector.sector %>" data-occupations='<%= JSON.stringify(sector.occupations) %>'>
+                  <%= sector.sector %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="occupationInput">Occupation</label>
+            <input
+              type="text"
+              id="occupationInput"
+              name="occupation"
+              placeholder="Select Occupation"
+              list="occupationDatalist"
+              disabled
+            >
+            <datalist id="occupationDatalist"></datalist>
+          </div>
+          
+          <div class="input-group">
+            <label for="annualIncome">Minimum Annual Income </label>
+            <select id="annualIncome" name="annualIncome">
+              <option value="" disabled selected>Select Annual Income</option>
+              <option value="0-1 Lakh">0 - 1 Lakh</option>
+              <option value="1-2 Lakhs">1 - 2 Lakhs</option>
+              <option value="2-3 Lakhs">2 - 3 Lakhs</option>
+              <option value="3-5 Lakhs">3 - 5 Lakhs</option>
+              <option value="5-7 Lakhs">5 - 7 Lakhs</option>
+              <option value="7-10 Lakhs">7 - 10 Lakhs</option>
+              <option value="10-15 Lakhs">10 - 15 Lakhs</option>
+              <option value="15-20 Lakhs">15 - 20 Lakhs</option>
+              <option value="20+">20 Lakhs &amp; above</option>
+            </select>
+          </div>
+
+         
+          
+          
+          
+          <div class="input-group">
+            <label for="familyType">Partner Family Type</label>
+            <select id="familyType" name="familyType">
+              <option value="" disabled selected>Select Family Type</option>
+              <option value="Joint">Joint Family</option>
+              <option value="Nuclear">Nuclear Family</option>
+              <option value="Extended">Extended Family</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          
+          
+          
+          
+        
+          
+          <button class="profile-btn" type="submit">Filter Profiles</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("✅ jQuery is working!");
+        });
+    </script>
+    <script src="/js/filter-choice.js"></script>
+</body>
+</html>

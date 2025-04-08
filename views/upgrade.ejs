@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/upgrade.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+  <div class="plan-switcher">
+    <button class="active" onclick="switchPlan('normal')">1 Month</button>
+    <button onclick="switchPlan('pro')">3 Months</button>
+    <button onclick="switchPlan('pro-max')">6 Months</button>
+    <button onclick="switchPlan('gold')">12 Months </button>
+    <button onclick="switchPlan('diamond')">Till-Marriage</button>
+    <button onclick="switchPlan('sponsorship')">Sponsorship</button>
+</div>
+<div class="promo">
+  <p>Unlock savings instantly – apply your promo code now!</p>
+  <input type="text" id="promo-code"  placeholder="Enter Promo Code">
+  <button id="apply-promo">Apply</button>
+</div>
+<div id="normal" class="plan-container active">
+    <h2>Start your journey of love, one month at a time! <i class="fa-solid fa-heart"></i></h2>
+    <div class="sub-plans">
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>BASIC</p><span>Per Month</span></div>
+            <div class="top-right" data-original-price="99">&#8377; 99</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 50 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 1 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 25 Profiles Shortlist</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                   <input type="hidden" name="promocode" class="dipromocode" value="">
+                   <input type="hidden" name="plan" value="Basic99">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="99">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+        <div class="sub-plan">
+          <div class="top">
+          <div class="top-left"><p>PRO </p><span>Per Month</span></div>
+          <div class="top-right" data-original-price="299">&#8377; 299</div>
+          </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 100 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 5 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 50 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 1 Intrest</p>
+
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Pro299">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="299">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>PRO </p><span>Per Month</span></div>
+            <div class="top-right" data-original-price="599">&#8377; 599</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 10 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 100 Profiles Shortlist</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 3 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="Pro599">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="599">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div id="pro" class="plan-container">
+    <h2>Three months to find your perfect match—let’s make it count! <i class="fa-solid fa-heart"></i></h2>
+    <div class="sub-plans">
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>PRO MAX</p><span>3 Month</span></div>
+            <div class="top-right" data-original-price="999">&#8377; 999</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 15 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 5 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="ProMax999">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="999">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>PRO MAX</p><span>3 Month</span></div>
+            <div class="top-right" data-original-price="1299">&#8377; 1299</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 20 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 7 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="ProMax1299>
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="1299">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>PRO MAX</p><span>3 Month</span></div>
+            <div class="top-right" data-original-price="1499">&#8377; 1499</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 25 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 10 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="ProMax1499">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="1499">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div id="pro-max" class="plan-container">
+    <h2>Half a year of unlimited possibilities in your search for love! <i class="fa-solid fa-heart"></i></h2>
+    <div class="sub-plans">
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>SILVER</p><span>6 Month</span></div>
+            <div class="top-right" data-original-price="1699">&#8377; 1699</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 30 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 12 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="Silver1699">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="1699">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>SILVER</p><span>6 Month</span></div>
+            <div class="top-right" data-original-price="1899">&#8377; 1899</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 35 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 15 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="Silver1899">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="1899">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+        <div class="sub-plan">
+          <div class="top">
+            <div class="top-left"><p>SILVER</p><span>6 Month</span></div>
+            <div class="top-right" data-original-price="2199">&#8377; 2199</div>
+          </div>
+          <div class="mid">
+            <p><span><i class="fa-solid fa-check"></i></span> 300 Profiles Views</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+            <p><span><i class="fa-solid fa-check"></i></span> 40 Person Contact View</p>
+            <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 150 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 18 Intrest</p>
+          </div>
+          <div class="bottom">
+              <form action="/payment" method="post">
+                <input type="hidden" name="promocode" class="dipromocode" value="">
+                <input type="hidden" name="plan" value="Silver2199">
+                   <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                   <input type="hidden" name="email" value="<%=currUser.email%>">
+                   <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                   <input type="hidden" id="amount" name="amount" value="2199">
+                   <button type="submit">SUBSCRIBE</button>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div id="gold" class="plan-container">
+  <h2>A full year to find and connect with your soulmate! <i class="fa-solid fa-heart"></i> </h2>
+  <div class="sub-plans">
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>GOLD</p><span>12 Month</span></div>
+          <div class="top-right" data-original-price="2499">&#8377; 2499</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 45 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 21 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Gold2499">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="2499">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>GOLD</p><span>12 Month</span></div>
+          <div class="top-right" data-original-price="2799">&#8377; 2799</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 50 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 25 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Gold2799">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="2799">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>GOLD</p><span>12 Month</span></div>
+          <div class="top-right" data-original-price="2999">&#8377; 2999</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 55 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 27 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Gold2999">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="2999">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div id="diamond" class="plan-container">
+  <h2>Stay connected until you say 'I do'—unlimited love, unlimited time! <i class="fa-solid fa-heart"></i></h2>
+  <div class="sub-plans">
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>DIAMOND</p><span>Till Marriage</span></div>
+          <div class="top-right" data-original-price="7999">&#8377; 7999</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 70 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 21 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Diamond7999">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="7999">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>DIAMOND</p><span>Till Marriage</span></div>
+          <div class="top-right" data-original-price="9999">&#8377; 9999</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 80 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 40 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Diamond9999">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="9999">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>EXCLUSIVE</p><span>Till Marriage</span></div>
+          <div class="top-right" data-original-price="12999">&#8377; 12999</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span> 400 Profiles Views</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Chats</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 90 Person Contact View</p>
+          <p><span><i class="fa-solid fa-check"></i></span> Unlimited Kundali Matching</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 200 Profiles Shortlist</p>
+          <p><span><i class="fa-solid fa-check"></i></span> 45 Intrest</p>
+        </div>
+        <div class="bottom">
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Exclusive12999">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="12999">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div id="sponsorship" class="plan-container">
+  <h2>Your profile appears first in search results! (Exclusive for Paid Members) <i class="fa-solid fa-heart"></i></h2>
+  <div class="sub-plans">
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>SPONSORSHIP</p><span>1 Month</span></div>
+          <div class="top-right" data-original-price="249">&#8377; 249</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span>maximum visibility</p> 
+          <p><span><i class="fa-solid fa-check"></i></span>Boost your profile</p> 
+          <p><span><i class="fa-solid fa-check"></i></span> increased engagement</p>
+
+        </div>
+        <div class="bottom">
+          <% if (currUser.plan.name !== "Free") { %>
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Sponsorship249">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="249">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+          <% } %>
+            
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>SPONSORSHIP</p><span>6 Month</span></div>
+          <div class="top-right" data-original-price="999">&#8377; 999</div>
+        </div>
+        <div class="mid">
+          <p><span><i class="fa-solid fa-check"></i></span>maximum visibility</p> 
+          <p><span><i class="fa-solid fa-check"></i></span>Boost your profile</p> 
+          <p><span><i class="fa-solid fa-check"></i></span> increased engagement</p>
+
+        </div>
+        <div class="bottom">
+          <% if (currUser.plan.name !== "Free") { %>
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Sponsorship999">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="999">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+            <% } %>
+            
+        </div>
+      </div>
+      <div class="sub-plan">
+        <div class="top">
+          <div class="top-left"><p>SPONSORSHIP</p><span>12 Month</span></div>
+          <div class="top-right" data-original-price="1599">&#8377; 1599</div>
+        </div>
+        <div class="mid">
+          <p><span style="background: linear-gradient(135deg, #F3149C, #A203ED);"><i class="fa-solid fa-check"></i></span>maximum visibility</p> 
+          <p><span style="background: linear-gradient(135deg, #F3149C, #A203ED);"><i class="fa-solid fa-check"></i></span>Boost your profile</p> 
+          <p><span style="background: linear-gradient(135deg, #F3149C, #A203ED);"><i class="fa-solid fa-check"></i></span> increased engagement</p>
+
+        </div>
+        <div class="bottom">
+          <% if (currUser.plan.name !== "Free") { %>
+            <form action="/payment" method="post">
+              <input type="hidden" name="promocode" class="dipromocode" value="">
+              <input type="hidden" name="plan" value="Sponsorship1599">
+                 <input type="hidden" name="name" value="<%=currUser.fullname%>">
+                 <input type="hidden" name="email" value="<%=currUser.email%>">
+                 <input type="hidden" name="phone" value="<%=currUser.phone%>">
+                 <input type="hidden" id="amount" name="amount" value="1599">
+                 <button type="submit">SUBSCRIBE</button>
+            </form>
+            <% } %>
+            
+            
+        </div>
+      </div>
+      
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>
+    <script src="/js/upgrade.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="/css/chats.css" />
+    <link rel="icon" type="image/png" href="/images/iw5.png" />
+    <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+  <div class="chat-container">
+    <% 
+      // Sort users: Online first, then offline
+      const sortedChats = chats.sort((a, b) => b.online - a.online);
+    %>
+  
+    <% sortedChats.forEach(chat => { %>
+      <a href="/chat/<%= chat.userId %>">
+        <div class="chat-user">
+          <img src="<%= chat.image || '/images/default-profile.jpg' %>" alt="Profile">
+          <div class="chat-details">
+            <div class="chat-name"><%= chat.fullname %></div>
+            <div class="chat-message">
+              <%= chat.lastMessage.length > 30 ? chat.lastMessage.substring(0, 30) + "..." : chat.lastMessage %>
+            </div>
+            <% if (chat.online) { %>
+              <div class="online-status">Online</div>
+            <% } else { %>
+              <div class="offline-status">Last seen at 
+                <%= new Date(chat.lastSeenTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </a>
+    <% }); %>
+  </div>
+  
+</body>
+</html>

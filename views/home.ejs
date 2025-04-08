@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="icon" type="image/png" href="/images/iw5.png" />
+    <title>IndianWife.in</title>
+  </head>
+  <body>
+    <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+
+    <% if (currUser && currUser.motherTongue) { %>
+      <div class="div1">
+        <div class="filter">
+          <a href="/filter-choice">Filter</a>
+        </div>
+        
+        <div class="feed-container">
+          <% users.forEach(user => { %>
+            <div class="profile-card">
+              <a href="/profile/<%=user.id%>">
+                <div class="profile-image">
+                  <img 
+                    src="<%= user.images && user.images.length > 0 ? user.images[0] : 'https://images.unsplash.com/photo-1740252330580-ca1d8173a786?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' %>" 
+                    alt="User Photo" 
+                  />
+                  <span class="photo-count">
+                    <%= user.images && user.images.length ? user.images.length : 0 %>
+                  </span>
+                </div>
+              </a>
+              <div class="profile-details">
+                <p class="last-seen">
+                  Last seen at 
+                  <%= user.lastSeenTime ? new Date(user.lastSeenTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) : 'N/A' %>
+                </p>
+                
+                <h2>
+                  <%= user.fullname %>, <%= user.age %>
+                  <% if (user.kyc) { %>
+                    <span class="verified-badge"><img src="/images/verify.png" alt="verified"></span>
+                  <% } %>
+                </h2>
+                <p><%= user.height %> • <%= user.City %> • <%= user.motherTongue %></p>
+                <p class="education"><i class="fa-solid fa-wallet"></i><%= user.jobSector %> - <%= user.occupation %> • <%= user.annualIncome %> p.a</p>
+                <p class="education"><i class="fa-solid fa-user-graduate"></i> <%= user.degree %>  • <i class="fa-solid fa-ring"></i> <%= user.maritalStatus %></p>
+                <div class="profile-actions">
+                  <button class="btn interest <%= user.interests.some(id => id.toString() === currUser._id.toString()) ? 'active' : '' %>" 
+                    data-user-id="<%= user._id.toString() %>">
+              <i class="fa-solid fa-thumbs-up"></i> 
+              <p>Like</p>
+            </button>
+            
+                  <button class="btn super-interest <%= user.superInterests.includes(currUser.id) ? 'active' : '' %>" id="sendSuperInterest" data-user-id="<%= user._id.toString() %>"><i class="fa-solid fa-heart"></i> <p>Interest</p></button>
+                  <button class="btn shortlist <%= currUser.shortlists.includes(user.id) ? 'active' : '' %>" data-user-id="<%= user._id.toString() %>"><i class="fa-solid fa-star"></i> <p>Shortlist</p></button>
+                  <form action="/chat/<%= user._id %>" method="get">
+                    <button class="btn chat"><i class="fa-solid fa-message"></i> <p>Chat</p></button>
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+      </div>
+    <% } else { %>
+      <div class="div2">
+        <div class="details-sections">
+          <div class="top-details">
+            <div class="profile-details active">Profile Details</div>
+            <div class="career-details ">Career Details</div>
+            <div class="lifestyle-family ">Lifestyle & Family</div>
+          </div>
+          <div class="bottom-details">
+            Complete your profile now to contact members you like and to receive
+            interests
+          </div>
+        </div>
+        <div class="form-main">
+          <form action="/full-details" method="post">
+            <div class="form-profile-details active   ">
+              <div class="input-group">
+                <label for="dob"
+                  >Date of Birth <span style="color: red">*</span></label
+                >
+    
+                <!-- Day Dropdown -->
+                <select id="day" name="day" required>
+                  <option value="" disabled selected>Day</option>
+                  <!-- Days 1 to 31 -->
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>
+    
+                <!-- Month Dropdown -->
+                <select id="month" name="month" required>
+                  <option value="" disabled selected>Month</option>
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+    
+                <!-- Year Dropdown (Only allows 18+ years) -->
+                <select id="year" name="year" required>
+                  <option value="" disabled selected>Year</option>
+                  <!-- Only allow 18+ years -->
+                  <option value="2006">2006</option>
+                  <option value="2005">2005</option>
+                  <option value="2004">2004</option>
+                  <option value="2003">2003</option>
+                  <option value="2002">2002</option>
+                  <option value="2001">2001</option>
+                  <option value="2000">2000</option>
+                  <option value="1999">1999</option>
+                  <option value="1998">1998</option>
+                  <option value="1997">1997</option>
+                  <option value="1996">1996</option>
+                  <option value="1995">1995</option>
+                  <option value="1994">1994</option>
+                  <option value="1993">1993</option>
+                  <option value="1992">1992</option>
+                  <option value="1991">1991</option>
+                  <option value="1990">1990</option>
+                  <option value="1989">1989</option>
+                  <option value="1988">1988</option>
+                  <option value="1987">1987</option>
+                  <option value="1986">1986</option>
+                  <option value="1985">1985</option>
+                  <option value="1984">1984</option>
+                  <option value="1983">1983</option>
+                  <option value="1982">1982</option>
+                  <option value="1981">1981</option>
+                  <option value="1980">1980</option>
+                  <option value="1979">1979</option>
+                  <option value="1978">1978</option>
+                  <option value="1977">1977</option>
+                  <option value="1976">1976</option>
+                  <option value="1975">1975</option>
+                  <option value="1974">1974</option>
+                  <option value="1973">1973</option>
+                  <option value="1972">1972</option>
+                  <option value="1971">1971</option>
+                  <option value="1970">1970</option>
+                  <option value="1969">1969</option>
+                  <option value="1968">1968</option>
+                  <option value="1967">1967</option>
+                  <option value="1966">1966</option>
+                  <option value="1965">1965</option>
+                  <option value="1964">1964</option>
+                  <option value="1963">1963</option>
+                  <option value="1962">1962</option>
+                  <option value="1961">1961</option>
+                  <option value="1960">1960</option>
+                </select>
+              </div>
+    
+              <div  class="input-group">
+                <label for="motherTongue"
+                  >Mother Tongue <span style="color: red">*</span></label
+                >
+                <select name="motherTongue" id="motherTongue" required>
+                  <option value="MotherTongues" disabled>Mother Tongue</option>
+                  <% motherTongues.forEach(function(motherTongue) { %>
+                  <optgroup label="<%= motherTongue.region %>">
+                    <% motherTongue.languages.forEach(function(language) { %>
+                    <option value="<%= language.name %>">
+                      <%= language.name %>
+                    </option>
+                    <% }); %>
+                  </optgroup>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="religionSelect"
+                  >Religion <span style="color: red">*</span></label
+                >
+                <select name="religion"  id="religionSelect">
+                  <option value="" disabled selected>Select Religion</option>
+                  <% religions.forEach(function(religion) { %>
+                  <!-- Store castes as a JSON string in a custom attribute -->
+                  <option
+                    value="<%= religion.name %>"
+                    data-castes="<%= JSON.stringify(religion.castes) %>"
+                  >
+                    <%= religion.name %>
+                  </option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="casteInput"
+                  >Caste <span style="color: red">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="casteInput"
+                  placeholder="Type caste"
+                  list="castDatalist"
+                  name="cast"
+                  disabled
+                />
+                <datalist id="castDatalist"></datalist>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="casteNoBar" name="casteNoBar">
+                <label for="casteNoBar">Caste No Bar (I am open to marry people of all castes)</label>
+              </div>
+              <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender"  name="gender" required>
+                  <option value="" disabled selected>Select your gender <span style="color: red">*</span></option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="manglikStatus">Manglik Status</label>
+    <select id="manglikStatus" name="manglikStatus">
+      <option value="" disabled selected>Select Manglik Status</option>
+      <option value="Manglik">Manglik</option>
+      <option value="Not Manglik">Not Manglik</option>
+      <option value="Anshik Manglik">Anshik Manglik</option>
+    </select>
+              </div>
+    
+              <div class="input-group">
+                <label for="maritalStatus">Marital Status<span style="color: red">*</span> </label>
+    <select id="maritalStatus" name="maritalStatus" required>
+      <option value="" disabled selected>Select Marital Status</option>
+      <option value="Never Married">Never Married</option>
+      <option value="Married">Married</option>
+      <option value="Divorced">Divorced</option>
+      <option value="Widowed">Widowed</option>
+      <option value="Separated">Separated</option>
+    </select>
+              </div>
+    
+              <div class="input-group">
+                <label for="partnerWork">Allow Partner to Work</label>
+                <select id="partnerWork" name="partnerWork" required>
+                  <option value="" disabled selected>Select your preference</option>
+                  <option value="Yes">Yes, my partner can work</option>
+                  <option value="No">No, my partner should not work</option>
+                </select>
+              </div>
+    
+    
+              <div class="input-group">
+                <label for="horoscopicMatch">Horoscopic Match</label>
+    <select id="horoscopicMatch" name="horoscopicMatch">
+      <option value="" disabled selected>Select your preference</option>
+      <option value="Horoscopic match is a must">Horoscopic match is a must</option>
+      <option value="Horoscopic match is not necessary">Horoscopic match is not necessary</option>
+    </select>
+              </div>
+              <div class="input-group">
+                <label for="height">Height<span style="color: red">*</span></label>
+    <select id="height" name="height" required>
+      <option value="" disabled selected>Select your height</option>
+      <% heights.forEach(function(height) { %>
+        <option value="feet:<%= height.feet_inches %>, meters: <%= height.meters %>">
+          <%= height.feet_inches %> (<%= height.meters %> m)
+        </option>
+      <% }); %>
+    </select>
+              </div>
+    
+              <p class="continue">Continue</p>
+            </div>
+            <div class="form-career-details">
+              <div class="input-group">
+                <label for="country">Select State <span style="color: red">*</span></label>
+                <select name="state" id="country" required>
+                  
+                  <option value="" disabled selected>Select State and UTs</option>
+                  <% countries.forEach(function(country) { %>
+                    <option value="<%= country.name %>"><%= country.name %></option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="city"> City Living In<span style="color: red">*</span></label>
+                <input class="city" id="city" type="text" name="City" placeholder="Start typing city name..." list="city-suggestions" required>
+                 <datalist id="city-suggestions"></datalist>
+              </div>
+              <div class="input-group">
+                <label for="residentialStatus">Residential Status<span style="color: red">*</span></label>
+                <select id="residentialStatus" name="residentialStatus" required>
+                  <option value="" disabled selected>Select Residential Status</option>
+                  <option value="Permanent Citizen">Permanent Citizen</option>
+                  <option value="Resident Student Visa">Resident on Student Visa</option>
+                  <option value="Resident Work Visa">Resident on Work Visa</option>
+                  <option value="Temporary Resident">Temporary Resident</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="degreeInput">Highest Degree<span style="color: red">*</span></label>
+                <input
+                  type="text"
+                  id="degreeInput"
+                  name="degree"
+                  placeholder="Type your degree"
+                  list="degreeDatalist"
+                  required
+                >
+                <datalist id="degreeDatalist">
+                  <% degrees.forEach(function(degreeCategory) { %>
+                    <% degreeCategory.degrees.forEach(function(degree) { %>
+                      <option value="<%= degree.name %>"><%= degree.name %> (<%= degreeCategory.category %>)</option>
+                    <% }); %>
+                  <% }); %>
+                </datalist>
+              </div>
+              <div class="input-group">
+                <label for="jobSector">Employed In<span style="color: red">*</span></label>
+                <select id="jobSector" name="jobSector" required>
+                  <option value="" disabled selected>Select Employment</option>
+                  <% jobSectors.forEach(function(sector) { %>
+                    <!-- Each option carries its occupations as a JSON string -->
+                    <option value="<%= sector.sector %>" data-occupations='<%= JSON.stringify(sector.occupations) %>'>
+                      <%= sector.sector %>
+                    </option>
+                  <% }); %>
+                </select>
+              </div>
+              
+              <div class="input-group">
+                <label for="occupationInput">Occupation<span style="color: red">*</span></label>
+                <input
+                  type="text"
+                  id="occupationInput"
+                  name="occupation"
+                  placeholder="Select Occupation"
+                  list="occupationDatalist"
+                  disabled
+                  required
+                >
+                <datalist id="occupationDatalist"></datalist>
+              </div>
+    
+              <div class="input-group">
+                <label for="annualIncome">Annual Income <span style="color: red">*</span></label>
+                <select id="annualIncome" name="annualIncome" required>
+                  <option value="" disabled selected>Select Annual Income</option>
+                  <option value="0-1 Lakh">0 - 1 Lakh</option>
+                  <option value="1-2 Lakhs">1 - 2 Lakhs</option>
+                  <option value="2-3 Lakhs">2 - 3 Lakhs</option>
+                  <option value="3-5 Lakhs">3 - 5 Lakhs</option>
+                  <option value="5-7 Lakhs">5 - 7 Lakhs</option>
+                  <option value="7-10 Lakhs">7 - 10 Lakhs</option>
+                  <option value="10-15 Lakhs">10 - 15 Lakhs</option>
+                  <option value="15-20 Lakhs">15 - 20 Lakhs</option>
+                  <option value="20+">20 Lakhs &amp; above</option>
+                </select>
+              </div>
+    
+              <div class="input-group">
+                <label for="expressYourself">Express Yourself<span style="color: red">*</span></label>
+                <textarea
+                  id="expressYourself"
+                  name="expressYourself"
+                  placeholder="Write something about yourself..."
+                  required
+                  rows="5"
+                ></textarea>
+              </div>
+              
+              <div class="suggestions">
+                <p>You may consider answering these questions:</p>
+                <ol>
+                  <li>How would you describe yourself?</li>
+                  <li>What kind of food, movies, books, or music do you like?</li>
+                  <li>Do you enjoy activities like traveling, music, sports, etc?</li>
+                  <li>Where have you lived most of your life till now?</li>
+                  <li>Where do you wish to settle down in the future?</li>
+                </ol>
+              </div>
+              
+              
+              <p class="continue">Continue</p>
+            </div>
+            <div class="form-lifestyle-family ">
+              <div class="input-group">
+                <label for="familyType">Family Type</label>
+                <select id="familyType" name="familyType">
+                  <option value="" disabled selected>Select Family Type</option>
+                  <option value="Joint">Joint Family</option>
+                  <option value="Nuclear">Nuclear Family</option>
+                  <option value="Extended">Extended Family</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="occupationType"> Father Occupation </label>
+                <select id="occupationType" name="fatheroccupationType" >
+                  <option value="" disabled selected>Select Occupation Type</option>
+                  <option value="Business Enterprise">Business &amp; Enterprise</option>
+                  <option value="Private Service">Private - Service </option>
+                  <option value="Government Service">Government - Service</option>
+                  <option value="Army">Army / Armed Forces</option>
+                  <option value="Civil Service">Civil Service</option>
+                  <option value="Retired">Retired</option>
+                  <option value="Not Employed">Not Employed</option>
+                  <option value="Expired">Expired</option>
+                  <option value="Other">Other</option>
+    
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="occupationType">Mother Occupation </label>
+                <select id="occupationType" name="motheroccupation">
+                  <option value="" disabled selected>Select Occupation Type</option>
+                  <option value="Business Enterprise">Business &amp; Enterprise</option>
+                  <option value="Private Service ">Private - Service</option>
+                  <option value="Government Service">Government - Service </option>
+                  <option value="Army">Army / Armed Forces</option>
+                  <option value="Civil Service">Civil Service</option>
+                  <option value="Retired">Retired</option>
+                  <option value="Not Employed">Not Employed</option>
+                  <option value="Expired">Expired</option>
+                  <option value="Home Maker">Home Maker</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="brothers">Brothers</label>
+                <input type="number" class="fullinput" id="brothers" name="brothers" min="0" placeholder="Enter number of brothers">
+              </div>
+              
+              <div class="input-group">
+                <label for="marriedBrothers">Married Brothers</label>
+                <input type="number" class="fullinput" id="marriedBrothers" name="marriedBrothers" min="0" placeholder="Enter number of married brothers">
+              </div>
+              
+              <div class="input-group">
+                <label for="sisters">Sisters</label>
+                <input type="number" class="fullinput"  id="sisters" name="sisters" min="0" placeholder="Enter number of sisters">
+              </div>
+              
+              <div class="input-group">
+                <label for="marriedSisters">Married Sisters</label>
+                <input type="number" class="fullinput" id="marriedSisters" name="marriedSisters" min="0" placeholder="Enter number of married sisters">
+              </div>
+              <div class="input-group">
+                <label for="familyLiving">Family Living In</label>
+                <select class="fullinput" id="familyLiving" name="familyLiving" required>
+                  <option value="" disabled selected>Select a State and UTs</option>
+                  <% countries.forEach(function(country) { %>
+                    <option value="<%= country.name %>"><%= country.name %></option>
+                  <% }); %>
+                </select>
+              </div>
+              
+              <div class="input-group">
+                <label for="aboutFamily">About My Family</label>
+                <textarea id="aboutFamily" name="aboutfamily" placeholder="Write about your parents and brothers or sisters. Where do they live? What are they doing?" rows="5"></textarea>
+              </div>
+              
+              <button class="profile-btn" type="submit">Save Details</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <% } %>
+    <%- include('partials/footer') %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("✅ jQuery is working!");
+        });
+    </script>
+    <script src="/js/home.js"></script>
+  </body>
+</html>

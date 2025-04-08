@@ -1,0 +1,217 @@
+.filter-heading{
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div2{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.input-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 80px;
+  gap: 10px;
+}
+
+#motherTongue{
+  width: 325px;
+  height: 40px;
+}
+
+#casteInput, #ageMin, #ageMax{
+  padding-left: 10px;
+  width: 325px;
+  height: 40px;
+}
+#religionSelect{
+  width: 325px;
+  height: 40px;
+}
+label{
+  width: 160px;
+}
+.form-group{
+  padding-left: 190px;
+  width: 530px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.form-group label{
+  width: 400px;
+  font-size: 10px;
+}
+.form-group input{
+  width: 20px;
+  height: 20px;
+}
+#manglikStatus, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork{
+  width: 325px;
+  height: 40px;
+}
+.city, #degreeInput, #occupationInput, .fullinput{
+  width: 325px;
+  height: 40px;
+  font-size: 14px;
+  padding: 0px 20px;
+}
+
+.suggestions{
+  width: 530px;
+  padding-left: 180px;
+  height: auto;
+  font-size: 14px;
+  font-weight: 500;
+}
+.profile-btn{
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: red;
+}
+.profile-btn:hover{
+transition: 0.4s;
+opacity: 1;
+}
+
+
+
+@media (max-width: 750px){
+  .div2{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .filter-heading{
+    font-size: 15px;
+  }
+  .top-details div{
+      font-size: 14px;
+  }
+.bottom-details{
+  font-size: 18px;
+}
+.input-group{
+  gap: 8px;
+}
+.input-group label{
+  width: 150px;
+  font-size: 12px;
+}
+#manglikStatus, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork, #motherTongue, #religionSelect, #ageMin, #ageMax, #casteInput{
+  width: 250px;
+  height: 40px;
+}
+}
+@media (max-width: 450px){
+  .div2{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .top-details{
+    height: 30px;
+  }
+  .top-details div{
+      font-size: 12px;
+  }
+  .bottom-details{
+    font-size: 14px;
+  }
+  
+  .input-group{
+    gap: 5px;
+  }
+  .input-group label{
+    width: 100px;
+    font-size: 12px;
+  }
+  #manglikStatus, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork, #motherTongue, #religionSelect, #ageMin, #ageMax, #casteInput{
+    width: 200px;
+    height: 35px;
+  }
+  .continue {
+    font-size: 12px;
+  }
+  .input-group input{
+    width: 200px;
+    height: 35px;
+  }
+}
+@media (max-width: 400px){
+  .div2{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .filter-heading{
+    font-size: 13px;
+  }
+  .top-details{
+    height: 30px;
+  }
+  .top-details div{
+      font-size: 9px;
+  }
+  .bottom-details{
+    font-size: 10px;
+  }
+  .input-group label{
+    width: 100px;
+    font-size: 11px;
+  }
+  #manglikStatus, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork, #familyLiving, #degreeInput, #occupationInput, #motherTongue, #religionSelect, #ageMin, #ageMax, #casteInput{
+    width: 150px;
+    height: 30px;
+    font-size: 10px;
+    padding-left: 5px;
+  }
+  .input-group input{
+    width: 150px;
+    height: 30px;
+    font-size: 10px;
+    padding-left: 5px;
+  }
+  #aboutFamily, #expressYourself{
+    width: 150px;
+    font-size: 10px;
+    padding-left: 5px;
+  }
+  .profile-btn{
+    font-size: 12px;
+    width: 120px;
+    height: 30px;
+    margin-left: 120px;
+  }
+  .suggestions{
+    width: 280px;
+  }
+  .suggestions p, .suggestions ol li{
+   font-size: 10px;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/support.css" />
+  <link rel="icon" type="image/png" href="/images/iw5.png" />
+  <title>IndianWife.in</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+<div class="main">
+  <div class="support-container">
+    <h2>Support Chat</h2>
+  
+    <% if (messagesToday >= 50) { %>
+      <p class="error">You have reached your daily limit of 50 messages.</p>
+    <% } else { %>
+      <form action="/support" method="POST">
+        <textarea name="message" placeholder="Type your message..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    <% } %>
+  
+    <div class="chat-box">
+      <% messages.forEach(msg => { %>
+        <div class="message <%= msg.isAdmin ? 'admin-msg' : 'user-msg' %>">
+          <p><strong><%= msg.isAdmin ? "Support" : "You" %>:</strong> <%= msg.message %></p>
+        </div>
+      <% }) %>
+    </div>
+
+    <% if (srequest==="true") { %>
+      <form action="/requestSuccessStory" method="get">
+        <button type="submit" class="request-btn" >Request to Add Success Story</button>
+      </form>
+    <% } %>
+    <form  >
+      <button type="submit" class="request-btn" >Your success story request (Pending).</button>
+    </form>
+   
+  </div>
+</div>
+  
+  
+  
+  <%- include('partials/footer') %>
+    <script src="/js/support.js"></script>
+</body>
+</html>

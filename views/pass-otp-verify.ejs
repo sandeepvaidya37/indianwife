@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/verify.css">
+    <link rel="icon" type="image/png" href="/images/iw5.png">
+    <title>IndianWife.in</title>
+</head>
+<body>
+    <%- include('partials/popmsg') %>
+    <div class="login-container">
+      <div class="desc">
+        <img src="/images/bg3.png" alt="logo">
+        <p>Secure your account with a quick verification!</p>
+    </div>
+    
+        
+        <div class="otp-verification">
+            <h2>Verify Your OTP</h2>
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+    <form action="/verify-password-otp" method="POST">
+        <input type="hidden" name="sessionId" value="<%= sessionId %>">
+        <input type="hidden" name="phone" value="<%= phone %>">
+        <input type="hidden" name="password" value="<%= password1%>">
+        <input type="text" name="otp" placeholder="Enter OTP" required>
+        <button type="submit">Verify OTP</button>
+    </form>
+        </div>
+    </div>
+    
+
+
+
+    
+</body>
+</html>

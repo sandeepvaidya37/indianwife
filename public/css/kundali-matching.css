@@ -1,0 +1,169 @@
+/* Main Container */
+.kundali-main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-image: url("/images/kundali.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
+/* Kundali Profile Card */
+.kundali-profile {
+  width: 92%;
+  max-width: 500px;
+  min-width: 280px;
+  padding: 18px;
+  border-radius: 15px;
+  background: rgba(255, 0, 0, 0.1); /* Light red transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 0, 0.3); /* Red border glow */
+  box-shadow: 0px 4px 12px rgba(255, 0, 0, 0.3); /* Subtle red glow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.kundali-profile:hover {
+  transform: scale(1.02);
+}
+
+/* Profile Info */
+.profile-info {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-info p {
+  margin: 5px 0;
+}
+
+/* Action Buttons */
+.profile-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* View Button */
+.view-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: white;
+  background: rgba(255, 0, 0, 0.8); /* Red button */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.view-btn:hover {
+  background: rgba(255, 0, 0, 1);
+}
+
+/* Download Button */
+.download-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: white;
+  background: rgba(0, 123, 255, 0.7); /* Blue */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+  background: rgba(0, 123, 255, 1);
+}
+
+/* Processing Status */
+.processing {
+  font-size: 14px;
+  font-weight: bold;
+  color: yellow;
+}
+
+/* No Requests Text */
+.no-requests {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.8;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 480px) {
+  .kundali-main {
+    padding: 10px;
+  }
+
+  .kundali-profile {
+    width: 95%;
+    padding: 14px;
+  }
+
+  .profile-info {
+    font-size: 14px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .view-btn,
+  .download-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .processing {
+    font-size: 12px;
+  }
+
+  .no-requests {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .kundali-profile {
+    min-width: 280px;
+    padding: 12px;
+  }
+
+  .profile-info {
+    font-size: 12px;
+  }
+
+  .view-btn,
+  .download-btn {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .processing {
+    font-size: 10px;
+  }
+
+  .no-requests {
+    font-size: 12px;
+  }
+}
