@@ -123,7 +123,6 @@ const messagesToday = await SupportMessage.countDocuments({
 });
 
     const userId = req.user.id; 
-const userId = req.user.id; 
 
 const existingRequest = await SuccessStoryRequest.findOne({ user: userId });
 
