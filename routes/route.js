@@ -122,11 +122,8 @@ const messagesToday = await SupportMessage.countDocuments({
   createdAt: { $gte: today }, // Messages created today
 });
 
-<<<<<<< HEAD
     const userId = req.user.id; 
-=======
 const userId = req.user.id; 
->>>>>>> d914ebb0 (WIP: local changes before pulling from remote)
 
 const existingRequest = await SuccessStoryRequest.findOne({ user: userId });
 
