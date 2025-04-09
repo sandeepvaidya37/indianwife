@@ -1,6 +1,7 @@
 .main{
+  padding: 30px;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +70,13 @@ button.submit-btn:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 280px) {
+@media (max-width: 300px) {
+  h2{
+    font-size: 14px;
+  }
+  label{
+    font-size: 14px;
+  }
   .container {
     padding: 10px;
   }

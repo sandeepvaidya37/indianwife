@@ -20,7 +20,10 @@
       <img src="<%= currUser.images[0] ? currUser.images[0] : '/images/profile.jpg' %>" alt="Profile Image">
     </div>
     <div class="menu-option-top-right">
-      <h5>Hi <%=currUser.fullname %> ! <br><a href="/edit-profile">Edit Profile</a></h5>
+      <% if (currUser && currUser.motherTongue) { %>
+        <h5>Hi <%=currUser.fullname %> ! <br><a href="/edit-profile">Edit Profile</a></h5>
+      <% } %>
+      
       <a class="Upgrade-Membership" href="/Upgrade-Membership">Upgrade-Membership</a>
     </div>
   </div>

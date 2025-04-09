@@ -438,11 +438,35 @@ font-weight: 600;
     width: 100px;
     font-size: 11px;
   }
-  #manglikStatus, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork, #familyLiving, #degreeInput, #occupationInput{
+  #manglikStatus, #motherTongue, #religionSelect, #casteInput, #maritalStatus, #horoscopicMatch, #height, #country, #residentialStatus, #jobSector, #annualIncome, #familyType, #occupationType, #gender, #partnerWork, #familyLiving, #degreeInput, #occupationInput{
     width: 150px;
     height: 30px;
     font-size: 10px;
     padding-left: 5px;
+  }
+  
+  .form-group{
+    padding-left: 10px;
+    width: 280px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .form-group label{
+    width: 250px;
+    font-size: 10px;
+  }
+  .form-group input{
+    width: 15px;
+    height: 15px;
+  }
+  
+  #day, #month, #year{
+    width: 49px;
+    font-size: 10px;
+    height: 30px;
   }
   .input-group input{
     width: 150px;

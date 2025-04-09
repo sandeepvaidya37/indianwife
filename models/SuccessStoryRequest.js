@@ -14,6 +14,9 @@ const successStoryRequestSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  partnerPhone: {
+    type: Number,
+  },
   image: {
     type: String, // Cloudinary image URL or local path
     required: true

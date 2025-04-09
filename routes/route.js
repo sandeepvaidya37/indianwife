@@ -122,7 +122,11 @@ const messagesToday = await SupportMessage.countDocuments({
   createdAt: { $gte: today }, // Messages created today
 });
 
+<<<<<<< HEAD
     const userId = req.user.id; 
+=======
+const userId = req.user.id; 
+>>>>>>> d914ebb0 (WIP: local changes before pulling from remote)
 
 const existingRequest = await SuccessStoryRequest.findOne({ user: userId });
 
@@ -210,6 +214,7 @@ router.post(
         user: currUser._id,
         name: req.body.name,
         partnerName: req.body.partnerName,
+        partnerPhone: req.body.partnerPhone,
         image: result.secure_url,
         quote: req.body.quote
       });

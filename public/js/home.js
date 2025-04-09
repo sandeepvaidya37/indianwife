@@ -108,7 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
             continueButton.style.cursor = "not-allowed";
         }
     }
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> d914ebb0 (WIP: local changes before pulling from remote)
     // Attach event listeners to required fields (inputs and selects)
     sections.forEach((section, index) => {
         const requiredFields = section.querySelectorAll("input[required], select[required]");

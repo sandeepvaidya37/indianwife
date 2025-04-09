@@ -248,9 +248,9 @@
               </div>
               <div class="form-group">
                 <input type="checkbox" id="casteNoBar" name="casteNoBar">
-                <label for="casteNoBar">Caste No Bar (I am open to marry people of all castes)</label>
+                <label for="casteNoBar" class="castelabel">Caste No Bar (I am open to marry people of all castes)</label>
               </div>
-              <div class="input-group">
+              <div class="input-group ">
                 <label for="gender">Gender</label>
                 <select id="gender"  name="gender" required>
                   <option value="" disabled selected>Select your gender <span style="color: red">*</span></option>
@@ -310,7 +310,7 @@
       <% }); %>
     </select>
               </div>
-    
+              
               <p class="continue">Continue</p>
             </div>
             <div class="form-career-details">
@@ -502,7 +502,10 @@
                 <label for="aboutFamily">About My Family</label>
                 <textarea id="aboutFamily" name="aboutfamily" placeholder="Write about your parents and brothers or sisters. Where do they live? What are they doing?" rows="5"></textarea>
               </div>
-              
+              <div class="form-group">
+                <input type="checkbox" id="termsandcondition" name="term" required>
+                <label for="term">I Accept your term and Conditions.</label>
+              </div>
               <button class="profile-btn" type="submit">Save Details</button>
             </div>
           </form>
