@@ -34,14 +34,17 @@
       <% }) %>
     </div>
 
-    <% if (srequest==="true") { %>
+    <% if (!srequest) { %>
+      <!-- Show this when no request is made -->
       <form action="/requestSuccessStory" method="get">
-        <button type="submit" class="request-btn" >Request to Add Success Story</button>
+        <button type="submit" class="request-btn">Request to Add Success Story</button>
+      </form>
+    <% } else { %>
+      <!-- Show this when request exists -->
+      <form>
+        <button type="submit" class="request-btn">Your success story request (Pending).</button>
       </form>
     <% } %>
-    <form  >
-      <button type="submit" class="request-btn" >Your success story request (Pending).</button>
-    </form>
    
   </div>
 </div>
