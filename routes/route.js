@@ -122,15 +122,11 @@ const messagesToday = await SupportMessage.countDocuments({
   createdAt: { $gte: today }, // Messages created today
 });
 
-    const existingRequest = await SuccessStoryRequest.findOne({ user: currUser._id });
-     
-    let srequest = "";
+    const userId = req.user.id; 
 
-    if(existingRequest){
-      const srequest = "true";
-    }else{
-      const srequest = "false";
-    }
+const existingRequest = await SuccessStoryRequest.findOne({ user: userId });
+
+const srequest = !!existingRequest; 
 
 
     res.render("support", { currUser, messages, srequest , messagesToday});
