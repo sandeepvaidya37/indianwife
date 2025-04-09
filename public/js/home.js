@@ -108,9 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             continueButton.style.cursor = "not-allowed";
         }
     }
-    document.querySelector(".filterbtn").addEventListener("click", function () {
-        document.querySelector(".filter-form").classList.toggle("active");
-      });
+   
     // Attach event listeners to required fields (inputs and selects)
     sections.forEach((section, index) => {
         const requiredFields = section.querySelectorAll("input[required], select[required]");
